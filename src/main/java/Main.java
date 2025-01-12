@@ -3,13 +3,18 @@ public class Main {
         // main method for running home tasks
 
         // Task 1. Get factorial
-       /* for (int i = -1; i<=12; i++) {
-            getFactorial(i);
-        }
-        */
+        //for (int i = -1; i<=12; i++) {
+        //    getFactorial(i);
+        //}
+
 
         // Task 2. Sum all number's digits.
-        getSumAllDigits(54);
+        //getSumAllDigits(54);
+
+
+        // Task 3. Triangle's square.
+        getTriangleSquare(3, 4, 5);
+
 
     }
 
@@ -41,4 +46,23 @@ public class Main {
         }
         System.out.println("Sum of all digits " + initialNumber + " = " + sum);
     }
+
+    // Task 3. Triangle's square.
+    public static void getTriangleSquare(float a, float b, float c) {
+
+        boolean b1 = ((a+b)<= c);
+        boolean b2 = ((b+c)<= a);
+        boolean b3 = ((c+a)<= b);
+
+        if ( b1 || b2 || b3 ) {
+            System.out.println("Values don't create a triangle");
+        }
+        else
+        {
+            float p = (a + b + c) / 2;
+            double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            System.out.println("Square = " + s);
+        }
+    }
+
 }
