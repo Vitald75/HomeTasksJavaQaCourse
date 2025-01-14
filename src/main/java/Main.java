@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         // main method for running home tasks
@@ -13,9 +15,14 @@ public class Main {
 
 
         // Task 3. Triangle's square.
-        getTriangleSquare(3, 4, 5);
+        //getTriangleSquare(3, 4, 5);
 
 
+        // Task 5. Transforming an array of 0,1
+        //change01Array();
+
+        // Task6.
+        //transformArray();
     }
 
     // Task 1. Get factorial
@@ -63,6 +70,47 @@ public class Main {
             double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
             System.out.println("Square = " + s);
         }
+    }
+
+
+
+    //Task 5. Transforming an array of 0,1
+    public static void change01Array(){
+        int[] array = {0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1};
+
+        // Print first array
+        System.out.println("Default array is:");
+        System.out.println(Arrays.toString(array));
+
+        //Transform the array
+        for (int i=0; i < array.length; i++) {
+            if (array[i] == 0) {
+                array[i] = 1;
+            }
+            else {
+                array[i] = 0;
+            }
+        }
+
+        // Print transformed array
+        System.out.println("Transformed array is:");
+        System.out.println(Arrays.toString(array));
+    }
+
+    // Task 6. Array, less than 6 multiply by 2
+    public static void transformArray(){
+        int[] array = {1,5,3,2,11,4,5,2,4,8,9,1};
+        int[] array2 = Arrays.copyOf(array, array.length);
+
+        for (int i=0; i < array.length; i++) {
+            if (array[i]<6) {
+                array[i]*=2;
+            }
+        }
+        //Arrays.sort(array);
+        System.out.println(Arrays.toString(array2));
+        System.out.println("----------------------");
+        System.out.println(Arrays.toString(array));
     }
 
 }
