@@ -23,8 +23,19 @@ public class Main {
 
         // Task6.
         //transformArray();
+
+        // Task 7. Print array in revers order
+        //printReversOrderArray();
+
+        // Task 8. Find first two palindroms
+        //findPalindrom();
+
+
+
+
     }
 
+    //-------------------------------------------------------
     // Task 1. Get factorial
     public static void getFactorial(int number) {
         if (number < 0) {
@@ -38,7 +49,7 @@ public class Main {
         }
     }
 
-
+    //-------------------------------------------------------
     // Task 2. Sum all number's digits.
     public static void getSumAllDigits(int number) {
         int initialNumber = number;
@@ -54,6 +65,7 @@ public class Main {
         System.out.println("Sum of all digits " + initialNumber + " = " + sum);
     }
 
+    //-------------------------------------------------------
     // Task 3. Triangle's square.
     public static void getTriangleSquare(float a, float b, float c) {
 
@@ -72,8 +84,7 @@ public class Main {
         }
     }
 
-
-
+    //-------------------------------------------------------
     //Task 5. Transforming an array of 0,1
     public static void change01Array(){
         int[] array = {0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1};
@@ -97,6 +108,7 @@ public class Main {
         System.out.println(Arrays.toString(array));
     }
 
+    //-------------------------------------------------------
     // Task 6. Array, less than 6 multiply by 2
     public static void transformArray(){
         int[] array = {1,5,3,2,11,4,5,2,4,8,9,1};
@@ -112,5 +124,56 @@ public class Main {
         System.out.println("----------------------");
         System.out.println(Arrays.toString(array));
     }
+
+    //-------------------------------------------------------
+    // Task 7. Print array in revers order
+    public static void printReversOrderArray(){
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println("Default array is: " + Arrays.toString(array));
+
+        int[] reverseArray = Arrays.copyOf(array, array.length);
+        for (int i=0; i < array.length; i++) {
+            reverseArray[i] = array[array.length -1 - i];
+        }
+        System.out.println("Reversed array is: " + Arrays.toString(reverseArray));
+    }
+
+    //-------------------------------------------------------
+    // Task 8. Find first two palindroms
+    public static char[] reverseCharArray(char[] array){
+        char[] reversedArray = Arrays.copyOf(array, array.length);
+        for (int i=0; i < array.length; i++) {
+            reversedArray[i] = array[array.length -1 - i];
+        }
+        return reversedArray;
+    }
+
+    public static void findPalindrom(){
+        int[] array = {1, 21, 35, 44, 515, 166661, 6};
+        int flag = 0;
+
+        for (int i : array) {
+            String numberInString = Integer.toString(i);
+            char[] numberInArrayOfChars = numberInString.toCharArray(); // convert number into array of chars
+            char[] reversedNumberInArrayOfChars = reverseCharArray(numberInArrayOfChars); // inverse array of chars
+            boolean b = Arrays.equals(numberInArrayOfChars, reversedNumberInArrayOfChars); // compare two arrays
+            if (b) {
+                System.out.println( i + " is a palindrom");
+                flag ++;
+            }
+            if (flag > 1) {
+                break;
+            }
+        }
+    }
+
+    //-------------------------------------------------------
+    // Task 9. Find first two palindroms
+    public static void sortByNumbersLength(){
+        int[] array = {1, 21, 35, 44, 515, 166661, 6};
+
+    }
+
+
 
 }
