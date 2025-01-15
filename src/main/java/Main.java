@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,6 +31,8 @@ public class Main {
         // Task 8. Find first two palindroms
         //findPalindrom();
 
+        // Task 9. Sort array by length
+        sortArrayByLength();
 
 
 
@@ -168,12 +171,43 @@ public class Main {
     }
 
     //-------------------------------------------------------
-    // Task 9. Find first two palindroms
-    public static void sortByNumbersLength(){
-        int[] array = {1, 21, 35, 44, 515, 166661, 6};
+    // Task 9. Sort array by length
 
+    public static int getLength(int number) {
+        return(Integer.toString(number).length());  //return length of number
     }
 
+    public static void sortArrayByLength(){
+        //first way - bubblesort
+        int[] array = {11014, 2, 35, 44, 515, 166661, 6, 11, 12, 28, 2541};
+        boolean isSorted = false;
+        System.out.println("Unsorted array:" + Arrays.toString(array));
 
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 1; i < array.length; i++) {
+                if (getLength(array[i]) < getLength(array[i - 1])) {
+                    int temp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = temp;
+                    isSorted = false;
+                }
+            }
+        }
+        System.out.println("Sorted array:" + Arrays.toString(array));
+
+        //second way
+        Integer[] array2 = {11014, 2, 35, 44, 515, 166661, 6, 11, 12, 28, 2541};
+        System.out.println("Unsorted array:" + Arrays.toString(array2));
+
+        Arrays.sort(array2, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Integer.toString(o1).length() - Integer.toString(o2).length();
+            }
+        });
+
+        System.out.println("Sorted array:" + Arrays.toString(array2));
+    }
 
 }
