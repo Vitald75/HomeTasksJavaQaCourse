@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Main {
     public static void main(String[] args) {
         // main method for running home tasks
@@ -16,12 +19,28 @@ public class Main {
         //getTriangleSquare(3, 4, 5);
 
         // Task 4. Return true if sum a+b between 10 and 20, else return false;
-        System.out.println(returnResult(16, 5));
+        //System.out.println(returnResult(16, 5));
+
+        // Task 5. Transforming an array of 0,1
+        //change01Array();
+
+        // Task6.
+        //transformArray();
+
+        // Task 7. Print array in revers order
+        //printReversOrderArray();
+
+        // Task 8. Find first two palindroms
+        //findPalindrom();
+
+        // Task 9. Sort array by length
+        sortArrayByLength();
 
 
 
     }
 
+    //-------------------------------------------------------
     // Task 1. Get factorial
     public static void getFactorial(int number) {
         if (number < 0) {
@@ -35,7 +54,7 @@ public class Main {
         }
     }
 
-
+    //-------------------------------------------------------
     // Task 2. Sum all number's digits.
     public static void getSumAllDigits(int number) {
         int initialNumber = number;
@@ -51,6 +70,7 @@ public class Main {
         System.out.println("Sum of all digits " + initialNumber + " = " + sum);
     }
 
+    //-------------------------------------------------------
     // Task 3. Triangle's square.
     public static void getTriangleSquare(float a, float b, float c) {
 
@@ -69,12 +89,136 @@ public class Main {
         }
     }
 
+    
+    //-------------------------------------------------------
     // Task 4. Return true if sum a+b between 10 and 20, else return false;
     public static boolean returnResult(int a, int b) {
         int sum = a + b;
         boolean cond1 = sum >= 10;
         boolean cond2 = sum <= 20;
         return cond1 && cond2;
+    }
+  
+    //-------------------------------------------------------
+    //Task 5. Transforming an array of 0,1
+    public static void change01Array(){
+        int[] array = {0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1};
+
+        // Print first array
+        System.out.println("Default array is:");
+        System.out.println(Arrays.toString(array));
+
+        //Transform the array
+        for (int i=0; i < array.length; i++) {
+            if (array[i] == 0) {
+                array[i] = 1;
+            }
+            else {
+                array[i] = 0;
+            }
+        }
+
+        // Print transformed array
+        System.out.println("Transformed array is:");
+        System.out.println(Arrays.toString(array));
+    }
+
+    //-------------------------------------------------------
+    // Task 6. Array, less than 6 multiply by 2
+    public static void transformArray(){
+        int[] array = {1,5,3,2,11,4,5,2,4,8,9,1};
+        int[] array2 = Arrays.copyOf(array, array.length);
+
+        for (int i=0; i < array.length; i++) {
+            if (array[i]<6) {
+                array[i]*=2;
+            }
+        }
+        //Arrays.sort(array);
+        System.out.println(Arrays.toString(array2));
+        System.out.println("----------------------");
+        System.out.println(Arrays.toString(array));
+    }
+
+    //-------------------------------------------------------
+    // Task 7. Print array in revers order
+    public static void printReversOrderArray(){
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println("Default array is: " + Arrays.toString(array));
+
+        int[] reverseArray = Arrays.copyOf(array, array.length);
+        for (int i=0; i < array.length; i++) {
+            reverseArray[i] = array[array.length -1 - i];
+        }
+        System.out.println("Reversed array is: " + Arrays.toString(reverseArray));
+    }
+
+    //-------------------------------------------------------
+    // Task 8. Find first two palindroms
+    public static char[] reverseCharArray(char[] array){
+        char[] reversedArray = Arrays.copyOf(array, array.length);
+        for (int i=0; i < array.length; i++) {
+            reversedArray[i] = array[array.length -1 - i];
+        }
+        return reversedArray;
+    }
+
+    public static void findPalindrom(){
+        int[] array = {1, 21, 35, 44, 515, 166661, 6};
+        int flag = 0;
+
+        for (int i : array) {
+            String numberInString = Integer.toString(i);
+            char[] numberInArrayOfChars = numberInString.toCharArray(); // convert number into array of chars
+            char[] reversedNumberInArrayOfChars = reverseCharArray(numberInArrayOfChars); // inverse array of chars
+            boolean b = Arrays.equals(numberInArrayOfChars, reversedNumberInArrayOfChars); // compare two arrays
+            if (b) {
+                System.out.println( i + " is a palindrom");
+                flag ++;
+            }
+            if (flag > 1) {
+                break;
+            }
+        }
+    }
+
+    //-------------------------------------------------------
+    // Task 9. Sort array by length
+    public static int getLength(int number) {
+        return(Integer.toString(number).length());  //return length of number
+    }
+
+    public static void sortArrayByLength(){
+        //first way - bubblesort
+        int[] array = {11014, 2, 35, 44, 515, 166661, 6, 11, 12, 28, 2541};
+        boolean isSorted = false;
+        System.out.println("Unsorted array:" + Arrays.toString(array));
+
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 1; i < array.length; i++) {
+                if (getLength(array[i]) < getLength(array[i - 1])) {
+                    int temp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = temp;
+                    isSorted = false;
+                }
+            }
+        }
+        System.out.println("Sorted array:" + Arrays.toString(array));
+
+        //second way
+        Integer[] array2 = {11014, 2, 35, 44, 515, 166661, 6, 11, 12, 28, 2541};
+        System.out.println("Unsorted array:" + Arrays.toString(array2));
+
+        Arrays.sort(array2, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Integer.toString(o1).length() - Integer.toString(o2).length();
+            }
+        });
+
+        System.out.println("Sorted array:" + Arrays.toString(array2));
     }
 
 }
