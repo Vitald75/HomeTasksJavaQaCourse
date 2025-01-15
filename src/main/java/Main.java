@@ -13,7 +13,11 @@ public class Main {
 
 
         // Task 3. Triangle's square.
-        getTriangleSquare(3, 4, 5);
+        //getTriangleSquare(3, 4, 5);
+
+        // Task 4. Return true if sum a+b between 10 and 20, else return false;
+        System.out.println(returnResult(16, 5));
+
 
 
     }
@@ -63,6 +67,14 @@ public class Main {
             double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
             System.out.println("Square = " + s);
         }
+    }
+
+    // Task 4. Return true if sum a+b between 10 and 20, else return false;
+    public static boolean returnResult(int a, int b) {
+        int sum = a + b;
+        boolean cond1 = sum >= 10;
+        boolean cond2 = sum <= 20;
+        return cond1 && cond2;
     }
 
 }
