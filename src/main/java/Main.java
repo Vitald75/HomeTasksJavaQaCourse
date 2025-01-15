@@ -34,10 +34,20 @@ public class Main {
         //findPalindrom();
 
         // Task 9. Sort array by length
-        sortArrayByLength();
+        //sortArrayByLength();
 
-
-
+        // Task 10. Array of employees,
+        Employee employee1 = new Employee("John Smith", "CEO", "smth@mail.com", "825221521", 1000, 38);
+        Employee employee2 = new Employee("Simba", "deputy chief", "simba@mail.com", "825221521", 800, 33);
+        Employee employee3 = new Employee("Kiara", "accountant", "simba@mail.com", "825221521", 800, 48);
+        Employee employee4 = new Employee("Shram", "manager", "simba@mail.com", "825221521", 800, 45);
+        Employee employee5 = new Employee("Kala", "waiter", "simba@mail.com", "825221521", 500, 21);
+        Employee[] array = {employee1, employee2, employee3, employee4, employee5};
+        for (Employee employee : array) {
+            if (employee.getAge()>40) {
+                employee.printEmployee();
+            }
+        }
     }
 
     //-------------------------------------------------------
@@ -205,7 +215,7 @@ public class Main {
                 }
             }
         }
-        System.out.println("Sorted array:" + Arrays.toString(array));
+        System.out.println("Sorted by length array:" + Arrays.toString(array));
 
         //second way
         Integer[] array2 = {11014, 2, 35, 44, 515, 166661, 6, 11, 12, 28, 2541};
@@ -218,7 +228,7 @@ public class Main {
             }
         });
 
-        System.out.println("Sorted array:" + Arrays.toString(array2));
+        System.out.println("Sorted by length array:" + Arrays.toString(array2));
     }
-
 }
+
