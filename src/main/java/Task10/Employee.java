@@ -1,3 +1,5 @@
+package Task10;
+
 //-----------------------------------
 // Task 10. Create class employee, fields 
 public class Employee {

@@ -6,9 +6,7 @@ public class Main {
         // main method for running home tasks
 
         // Task 1. Get factorial
-        //for (int i = -1; i<=12; i++) {
-        //    getFactorial(i);
-        //}
+        for (int i = -1; i<=12; i++) getFactorial(i);
 
 
         // Task 2. Sum all number's digits.
@@ -36,18 +34,6 @@ public class Main {
         // Task 9. Sort array by length
         //sortArrayByLength();
 
-        // Task 10. Array of employees,
-        Employee employee1 = new Employee("John Smith", "CEO", "smth@mail.com", "825221521", 1000, 38);
-        Employee employee2 = new Employee("Simba", "deputy chief", "simba@mail.com", "825221521", 800, 33);
-        Employee employee3 = new Employee("Kiara", "accountant", "simba@mail.com", "825221521", 800, 48);
-        Employee employee4 = new Employee("Shram", "manager", "simba@mail.com", "825221521", 800, 45);
-        Employee employee5 = new Employee("Kala", "waiter", "simba@mail.com", "825221521", 500, 21);
-        Employee[] array = {employee1, employee2, employee3, employee4, employee5};
-        for (Employee employee : array) {
-            if (employee.getAge()>40) {
-                employee.printEmployee();
-            }
-        }
     }
 
     //-------------------------------------------------------
@@ -58,7 +44,7 @@ public class Main {
         } else {
             int result = 1; // by default, if number = 0
             for (int i = 1; i <= number; i++) {
-                result *= i;
+                result *= i;   // result = result * i
             }
             System.out.println(number + "! = " + result);
         }
