@@ -23,6 +23,12 @@ public class Employee {
         this.age = age;
     }
 
+    /*все круто, но не printEmployee()
+    к классе Employee переопредели метод toString()
+    и тогда ты сможешь просто сделать System.out.println(employee) и он нормально тебе распечатает на консоль
+    * */
+
+
     public void printEmployee(){
         System.out.println("----------------------");
         System.out.println("Name: " + this.fullName);
