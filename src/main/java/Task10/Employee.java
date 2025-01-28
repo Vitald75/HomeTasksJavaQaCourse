@@ -28,18 +28,9 @@ public class Employee {
     и тогда ты сможешь просто сделать System.out.println(employee) и он нормально тебе распечатает на консоль
     * */
 
-
-    public void printEmployee(){
-        System.out.println("----------------------");
-        System.out.println("Name: " + this.fullName);
-        System.out.println("Position: " + this.position);
-        System.out.println("Email: " + this.email);
-        System.out.println("Phone: " + this.phone);
-        System.out.println("Salary:" + this.salary);
-        System.out.println("Age:" + this.age);
-
+    @Override
+    public String toString(){
+        return this.fullName + " - " + this.position + " - " + this.email + " - Age:" + this.age + " - Salary:" + this.salary;
     }
 
-
-    
 }

@@ -10,7 +10,7 @@ public class Task10 {       // Task 10. Array of employees
         Employee[] array = {employee1, employee2, employee3, employee4, employee5};
         for (Employee employee : array) {
             if (employee.getAge()>40) {
-                employee.printEmployee();
+                System.out.println(employee);
             }
         }
     }
