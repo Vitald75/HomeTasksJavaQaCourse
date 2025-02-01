@@ -21,6 +21,15 @@ public class Task16 {
             student.printStudent();
         };
 
+        /**
+         Cуть я понял и все как бы правильно =)
+        Но
+        1. Создай плиз отдельный класс-компаратор который имплементит Comparator<Student> и сортируй с помощью его
+        2. Как вариант сортировки по имени можно сделать через Comparable
+        3. И в качестве задания со звездочкой сделать (и понять как работает) из массива список и в нем вызвать
+        .sort(Comparator.comparing(Student::getName));
+        */
+
         Arrays.sort(students, new Comparator<Student>() {  //Sort by student's name
             @Override
             public int compare(Student o1, Student o2) {
