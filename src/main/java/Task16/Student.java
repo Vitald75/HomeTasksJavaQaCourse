@@ -1,6 +1,6 @@
 package Task16;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String name;
     private int age;
     private double avgGrade;
@@ -26,8 +26,14 @@ public class Student {
     /**Для вывода студента в консоль имелось в виду, надо переопределить метод toString()
     И из класса, где есть метод run вызывать System.out.println(student);
     }*/
-    public void printStudent() {
-        System.out.println("Students name:" + name + ", age:" + age + ", AVG Grade:" + avgGrade);
+    @Override
+    public String toString(){
+        return this.name + " - " + this.age + " - " + this.avgGrade;
     }
 
+    @Override
+    public int compareTo(Student o) {
+        //return (int) ((int) this.avgGrade - o.avgGrade);
+        return  this.age-o.age;
+    }
 }
