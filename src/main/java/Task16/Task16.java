@@ -3,7 +3,7 @@ package Task16;
 import java.util.*;
 
 public class Task16 {
-    public static <Student> List<Student> convertArrayToList(Student array[])  {
+    public static <Student> List<Student> convertArrayToList(Student[] array)  {
         List<Student> list = new ArrayList<>();
         for (Student student : array) {
             list.add(student);
@@ -59,7 +59,7 @@ public class Task16 {
 
         System.out.println("--------Only students with avgGrade > 8, using previous sorting ---------------");
         for (Student student : students) {
-            if (student.getAvgGrade()>8) System.out.println(student.toString());
+            if (student.getAvgGrade()>8) System.out.println(student);
         }
 
 
@@ -67,7 +67,7 @@ public class Task16 {
         List<Student> studentsList = convertArrayToList(students);
         Comparator<Student> comparatorListByName = Comparator
                 .comparing(Student::getName);
-        Collections.sort(studentsList, comparatorListByName);
+        studentsList.sort(comparatorListByName);
         System.out.println(studentsList);
 
         /**
