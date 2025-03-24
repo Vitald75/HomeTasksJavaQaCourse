@@ -2,11 +2,43 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Main {
+
+    private enum Seasons {
+        WINTER ("Зима"),
+        SPRING ("Весна"),
+        SUMMER ("Лето"),
+        FALL ("Осень");
+
+        private String name;
+
+        Seasons(String s) {
+            this.name = s;
+        }
+
+        @Override
+        public String toString() {
+            return "Season{" + super.toString() +
+                    " title='" + name + '\'' +
+                    '}';
+        }
+
+    }
+
     public static void main(String[] args) {
         // main method for running home tasks
 
         // Task 1. Get factorial
         for (int i = -1; i<=12; i++) getFactorial(i);
+
+        for (Seasons s: Seasons.values()) System.out.println(s.toString());
+
+        StringBuilder s1 = new StringBuilder("Hello");
+        StringBuilder s2 = s1;
+        s1.append(" world");
+        s2.append(" !");
+
+        System.out.println(s1.toString());
+        System.out.println(s2.toString());
 
 
         // Task 2. Sum all number's digits.
