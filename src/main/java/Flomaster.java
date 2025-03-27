@@ -32,10 +32,9 @@ public class Flomaster {
                     new Flomaster("красный", "кислый"),
                     new Flomaster("зелёный", "кислый"),
                     new Flomaster("жёлтый", "кислый"),
-                    new Flomaster("синий", "сладкий")
+                    new Flomaster("синий", "сладкий"),
+                    new Flomaster("оранжевый", "кислый")
             );
-
-
 
             Set<Flomaster> resultSet = getSourFlomaster(flomasterSet);
             System.out.println(resultSet);
@@ -47,15 +46,7 @@ public class Flomaster {
             Set<Flomaster> flomasterSet2 = flomasterSet.stream()
                     .filter(flomaster -> (flomaster.getTaste().equals("кислый")))
                     .collect(Collectors.toSet());
-                    //.forEach(Flomaster ff::println);
 
-//            System.out.println(flomasterSet2);
-
-//            for (Flomaster it : flomasterSet) {
-//                if (it.isSour()) {
-//                    System.out.println(it.color);
-//                }
-//            }
             //РЕАЛИЗОВАТЬ МЕТОД
        return flomasterSet2 ;
     }
