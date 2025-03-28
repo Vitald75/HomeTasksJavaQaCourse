@@ -1,6 +1,6 @@
 import java.util.Set;
 import java.util.stream.Collectors;
-
+// Task 18 Flomaster
 public class Flomaster {
         final String color;
         final String taste;
@@ -23,6 +23,7 @@ public class Flomaster {
         }
 
     @Override
+    // переопределил toString, для вывода для объекта только его цвета, по условию задания
     public String toString() {
         return this.color;
     }
@@ -30,7 +31,7 @@ public class Flomaster {
     public static void main(String[] args) {
             Set<Flomaster> flomasterSet = Set.of(
                     new Flomaster("красный", "кислый"),
-                    new Flomaster("зелёный", "кислый"),
+                    new Flomaster("зелёный", "сладкий"),
                     new Flomaster("жёлтый", "кислый"),
                     new Flomaster("синий", "сладкий"),
                     new Flomaster("оранжевый", "кислый")
@@ -38,18 +39,15 @@ public class Flomaster {
 
             Set<Flomaster> resultSet = getSourFlomaster(flomasterSet);
             System.out.println(resultSet);
-
         }
 
         public static Set<Flomaster> getSourFlomaster(Set<Flomaster> flomasterSet) {
-
-            Set<Flomaster> flomasterSet2 = flomasterSet.stream()
-                    .filter(flomaster -> (flomaster.getTaste().equals("кислый")))
-                    .collect(Collectors.toSet());
-
             //РЕАЛИЗОВАТЬ МЕТОД
-       return flomasterSet2 ;
-    }
+            Set<Flomaster> flomasterSet2 = flomasterSet.stream()
+                    .filter(flomaster -> flomaster.getTaste().equals("кислый"))
+                    .collect(Collectors.toSet());
+            return flomasterSet2 ;
+        }
     }
 // Необходимо сформировать список цветов кислых фломастеров и вывести его в формате ["цвет1", ..., "цветN"] пример ["красный", "зелёный", "жёлтый"]
 
