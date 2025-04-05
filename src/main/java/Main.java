@@ -30,15 +30,17 @@ public class Main {
         // Task 1. Get factorial
         for (int i = -1; i<=12; i++) getFactorial(i);
 
-        for (Seasons s: Seasons.values()) System.out.println(s.toString());
 
-        StringBuilder s1 = new StringBuilder("Hello");
-        StringBuilder s2 = s1;
-        s1.append(" world");
-        s2.append(" !");
 
-        System.out.println(s1.toString());
-        System.out.println(s2.toString());
+//        for (Seasons s: Seasons.values()) System.out.println(s.toString());
+
+//        StringBuilder s1 = new StringBuilder("Hello");
+//        StringBuilder s2 = s1;
+//        s1.append(" world");
+//        s2.append(" !");
+//
+//        System.out.println(s1.toString());
+//        System.out.println(s2.toString());
 
 
         // Task 2. Sum all number's digits.
