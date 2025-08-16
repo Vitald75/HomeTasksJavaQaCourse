@@ -6,7 +6,7 @@ public class OtherTasks {
         System.out.println(alfaTask1("123 234.7456 63 "));
 
 
-        System.out.println("Результат: " + getSumOfNumbers(85469));
+        System.out.println("Результат: " + getSumOfNumbers(99999999999L));
 
 
     }
@@ -27,18 +27,19 @@ public class OtherTasks {
 
     }
 
-    public static int getSumOfNumbers(int number) {
-
-       int sum = 0;
-       while (number > 0)  {
-            sum = sum + (number % 10);
-            System.out.println(number + ", %= " + number % 10 + ",  /=" +  number / 10 );
-            number = (number / 10);
+ // с использованием рекурсии
+    public static long getSumOfNumbers(long number) {
+        if ((number / 10) == 0)
+            return number;
+        else {
+            long sum = 0;
+            while (number > 0) {
+                sum = sum + (number % 10);
+               // System.out.println(number + ", %= " + number % 10 + ",  /=" + number / 10);
+                number = (number / 10);
+            }
+            return getSumOfNumbers(sum);
         }
-
-       if ((sum / 10) != 0)
-           getSumOfNumbers(sum);
-       else return sum;
 
     }
 

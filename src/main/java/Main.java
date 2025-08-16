@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -30,6 +31,20 @@ public class Main {
         // Task 1. Get factorial
         for (int i = -1; i<=12; i++) getFactorial(i);
 
+        int[] array = {1,2,3,4,5,6,7,8,9,0};
+        //ArrayList<int[]> list = new ArrayList<>();
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i : array) numbers.add(i);
+        System.out.println(numbers.toString());
+        System.out.println(numbers.stream().filter(i -> i!=5).count());
+        numbers.stream().filter(i -> i!=5).forEach(System.out::print);
+
+
+
+        //Collections.addAll(list, array);
+
+        //System.out.println(Arrays.toString(list));
 
 
 //        for (Seasons s: Seasons.values()) System.out.println(s.toString());
