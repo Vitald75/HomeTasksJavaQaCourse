@@ -1,4 +1,11 @@
+import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,6 +23,15 @@ public class OtherTasks {
         int[] array = {12, 4, 3, 45, 3, 44, 18, 10, 10, 18 };
         System.out.println(Set.of(convertArrayToSet(array)).toString());
         System.out.println(Arrays.toString(convertArrayToArray(array)));
+
+
+        Map<Integer, Integer> originalMap = new HashMap<>();
+        originalMap.put(1, 3);
+        originalMap.put(2, 1);
+        originalMap.put(4, 2);
+
+        Map<Integer, Integer> result = ConvertMap(originalMap);
+        System.out.println(result);
 
 
     }
@@ -81,6 +97,22 @@ public class OtherTasks {
 
     }
 
+    public static Map<Integer, Integer> ConvertMap(Map<Integer, Integer> startMap) {
+        List<Map.Entry<Integer, Integer>> entries = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : startMap.entrySet()) {
+            entries.add(new AbstractMap.SimpleEntry<>(entry.getValue(), entry.getKey()));
+        }
 
+        // Sort entries by the new key
+        entries.sort(Comparator.comparingInt(Map.Entry::getKey));
+
+        // Create a LinkedHashMap to preserve sorted order
+        Map<Integer, Integer> sortedMap = new LinkedHashMap<>();
+        for (Map.Entry<Integer, Integer> entry : entries) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        return sortedMap;
+    }
 
 }
