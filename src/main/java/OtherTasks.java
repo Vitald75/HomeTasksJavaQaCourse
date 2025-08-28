@@ -1,6 +1,7 @@
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -15,12 +16,22 @@ public class OtherTasks {
     private String name;
 
     public static void main(String[] args) {
+
+        System.out.println(String.format("Потерянное число - %d", getLostNumber(Arrays.asList(1,4,2,5,3),6)));
         task1ConvertStringIntoDigits("12hghd 3hgh 678gf76f8d ");
         System.out.println(alfaTask1("123 234.7456 63 "));
 
         System.out.println("Результат: " + getSumOfNumbers(99999999999L));
 
-        int[] array = {12, 4, 3, 45, 3, 44, 18, 10, 10, 18 };
+        int [] array = {12, 4, 3, 45, 3, 44, 18, 10, 10, 18 };
+
+        // Удаление дубликатов из массива через Set
+//        Integer [] array = {12, 4, 3, 45, 3, 44, 18, 10, 10, 18 };
+//        List<Integer> list = Arrays.asList(array);
+//        HashSet set = new HashSet<>(list);
+//        System.out.println(Set.of(set).toString());
+
+
         System.out.println(Set.of(convertArrayToSet(array)).toString());
         System.out.println(Arrays.toString(convertArrayToArray(array)));
 
@@ -113,6 +124,17 @@ public class OtherTasks {
         }
 
         return sortedMap;
+    }
+
+    public static Integer getLostNumber(List<Integer> numbers, Integer listlength) {
+
+        Collections.sort(numbers);
+        int counter = 0;
+        for (int el : numbers) {
+            if (el != counter) break;
+                    else counter++;
+        }
+        return counter;
     }
 
 }
